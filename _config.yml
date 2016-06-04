@@ -1,0 +1,87 @@
+# This is the default format.
+# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink: /:title
+
+baseurl: /
+encoding: utf-8
+
+markdown: kramdown
+# markdown: redcarpet
+# redcarpet:
+#  extensions: ["no_intra_emphasis", "autolink", "tables"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "TODO.md", "tools", "pdfs", "Dockerfile"]
+highlighter: pygments
+
+gems: [jekyll-paginate]
+paginate: 10
+
+# Themes are encouraged to use these universal variables
+# so be sure to set them if your theme uses them.
+#
+
+title : Linux Talents
+tagline: 连接高校和企业 Linux 团队！
+start: 2016
+
+production_url : http://tinylab.org
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  ignore:
+    envs: []
+
+# All Jekyll-Bootstrap specific configurations are namespaced into this hash
+#
+JB :
+  version : 0.3.0
+
+  BASE_PATH : false
+  
+  ASSET_PATH : false
+  IMAGE_PATH : false
+  
+  theme_name: tinylab.org
+
+  archive_path: /archive.html
+  authors_path: /authors.html
+  categories_path : /categories.html
+  tags_path : /tags.html
+  atom_path : /atom.xml
+  rss_path : /rss.xml
+  albums_path: /albums/
+  groups_path: /groups.html
+
+  posts:
+    title_length: 25
+    related_limit: 5
+  sidebar:
+    items_limit: 5
+  author_box:
+    max_perline: 6
+  article:
+    categories_limit: 3
+
+  code_prettify:
+    theme: prettify
+
+  comments :
+    provider : duoshuo
+    duoshuo :
+      short_name :
+    disqus :
+      short_name :
+
+  analytics :
+    providers :
+      - baidu
+      - cnzz
+    baidu :
+      tracking_id :
+    cnzz :
+      tracking_id :
+
+  sharing :
+    provider : false

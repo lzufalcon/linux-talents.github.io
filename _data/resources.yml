@@ -1,0 +1,11 @@
+
+- title: 文章
+  data: articles
+
+- title: 链接
+  data: links
+  url: /links/
+  tooltip: true
+
+- title: 工具
+  data: tools
