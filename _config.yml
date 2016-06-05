@@ -66,22 +66,3 @@ JB :
 
   code_prettify:
     theme: prettify
-
-  comments :
-    provider : duoshuo
-    duoshuo :
-      short_name :
-    disqus :
-      short_name :
-
-  analytics :
-    providers :
-      - baidu
-      - cnzz
-    baidu :
-      tracking_id :
-    cnzz :
-      tracking_id :
-
-  sharing :
-    provider : false
