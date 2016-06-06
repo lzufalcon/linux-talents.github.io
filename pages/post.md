@@ -259,5 +259,5 @@ Markdown 基本用法请参考 [Markdown 语法说明][2] 以及上面创建的�
 |info          | ...                   | 建议介绍专业、兴趣、特长等，如较多，请用 `;` 分割，以便自动分段展示
 |--------------|-----------------------|----------------|
 
- [1]: https://github.com/tinyclub/tinylab.org.git
+ [1]: https://github.com/linux-talents/linux-talents.github.io.git
  [2]: http://wowubuntu.com/markdown/
