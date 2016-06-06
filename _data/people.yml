@@ -1,10 +1,10 @@
 
 admin :
-  name : Linux Talents | linux-talents.github.io
+  name : Linux Talents | linux-talents.tinylab.org
   nickname: linuxtalents
   archive: true
   article: true
-  site: linux-talents.github.io
+  site: linux-talents.tinylab.org
   email : wuzhangjin@gmail.com
   github : linux-talents
   weibo : tinylaborg
