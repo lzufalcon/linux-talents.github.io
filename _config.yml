@@ -70,18 +70,13 @@ JB :
   comments :
     provider : duoshuo
     duoshuo :
-      short_name : tinylab
-    disqus :
-      short_name : tinylab
+      short_name : linux-talents
 
   analytics :
     providers :
-      - baidu
       - cnzz
-    baidu :
-      tracking_id : '15260089f8e103dc1cca30bcc1957b7c'
     cnzz :
-      tracking_id : '5542089'
+      tracking_id : '1259454545'
 
   sharing :
     provider : false
