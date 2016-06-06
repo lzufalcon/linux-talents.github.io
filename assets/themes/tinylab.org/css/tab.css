@@ -3,8 +3,7 @@
 */
 
 #tab {
-    width: 600px;
-    height: 300px;
+    min-height: 300px;
     border: 0 solid #dcdee0
 }
 .tab_content div {

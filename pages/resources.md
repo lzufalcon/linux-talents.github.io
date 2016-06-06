@@ -16,7 +16,7 @@ order: 100
 
 {% assign res_size = 0 %}
 {% assign res = site.data.resources %}
-<div class="tab_mouseover">
+<div id="tab" class="tab_mouseover">
   <div class="tab_header">
     <ul>
     {% for item in res %}
