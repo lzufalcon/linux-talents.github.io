@@ -65,7 +65,7 @@ Linux Talents 致力于连接高校和企业 Linux 团队，促进 Linux 人才�
 * Microsoft
 * 中科创达
 * WRTnode
-* Deepin
+* [Deepin][10001]
 * Intel
 * SUSE
 * 七牛
@@ -75,6 +75,7 @@ Linux Talents 致力于连接高校和企业 Linux 团队，促进 Linux 人才�
 * OIN
 
 [10000]: http://kernel.meizu.com
+[10001]: http://www.deepin.org
 
 ## 联系我们
 
