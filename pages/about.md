@@ -56,6 +56,7 @@ Linux Talents 致力于连接高校和企业 Linux 团队，促进 Linux 人才�
 
 * 华为终端车载产品线
 * 华为开源能力中心
+* [青云 QingCloud][10002]
 * 华为开发者社区
 * [魅族内核团队][10000]
 * Linux 基金会
@@ -71,11 +72,11 @@ Linux Talents 致力于连接高校和企业 Linux 团队，促进 Linux 人才�
 * 七牛
 * 展讯
 * 握奇
-* 青云
 * OIN
 
 [10000]: http://kernel.meizu.com
 [10001]: http://www.deepin.org
+[10002]: http://www.qingcloud.com
 
 ## 联系我们
 
