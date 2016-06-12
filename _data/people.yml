@@ -1,42 +1,42 @@
 
-admin :
-  name : Linux Talents | linux-talents.tinylab.org
+admin:
+  name: Linux Talents | linux-talents.tinylab.org
   nickname: linuxtalents
   archive: true
   article: true
   site: linux-talents.tinylab.org
-  email : wuzhangjin@gmail.com
-  github : linux-talents
-  weibo : tinylaborg
-  wechat : tinylab-org
+  email: wuzhangjin@gmail.com
+  github: linux-talents
+  weibo: tinylaborg
+  wechat: tinylab-org
   wechat-qrcode: true
   sponsor: weixin-pay-admin-9.68
   sponsor-qrcode: true
   info: 致力于促进 Linux 人才的交流与合作！
 
 Wu Zhangjin:
-  name : Wu Zhangjin
+  name: Wu Zhangjin
   nickname: Falcon
   archive: true
   article: true
   site: tinylab.org
-  email : wuzhangjin@gmail.com
-  github : lzufalcon
-  weibo : wuzhangjin
-  wechat : lzufalcon 
+  email: wuzhangjin@gmail.com
+  github: lzufalcon
+  weibo: wuzhangjin
+  wechat: lzufalcon
   wechat-qrcode: true
   sponsor: weixin-pay-falcon-3.69
   sponsor-qrcode: true
   info: 1) 本站创始人; 2) 混迹 Linux 圈十年，开源重度践行者；3) Linux 官方社区华人前 50 贡献者；4) 龙芯社区版 Linux 发起人；5) 兰州大学开源社区联合创始人；6) 先后工作于 Wind River，魅族科技。
 
 Shawn C:
-  name : Shawn
+  name: Shawn
   nickname: citypw
   archive: true
   article: true
   site: hardenedlinux.org
-  email : citypw@gmail.com
-  github : citypw
+  email: citypw@gmail.com
+  github: citypw
   info: 自由软件狂热分子，EFF/FSF/FSFE/SFC 支持者，BLUG/SHLUG/GZLUG/CDLUG 参与者，开源安全咨询，曾就职 Two devils of GNU/Linux 厂商 SUSE/RedHat :-)
 
 Jasine Chen:
@@ -50,3 +50,15 @@ Jasine Chen:
   wechat: jasine
   email: jasinechen@gmail.com
   info: 中国科学院开源软件协会 2016 届负责人
+
+Osier Yang:
+  name: Osier Yang
+  nickname: Osier
+  archive: true
+  article: true
+  site: N/A
+  email: agedosier@gmail.com
+  github: osier
+  weibo: osieryang
+  wechat: Osier002
+  info: 1) 兰大开源社区成立者; 2) Red Hat Cloud BU开发者，libvirt committer; 3) 青云QingCloud IaaS Core System Engineer; 4) 青云QingCloud对象存储(QingStor)及青云QingCloud分布式NAS的设计者，开发者，及架构师; 4) 青云QingCloud Kernel Team Lead.
