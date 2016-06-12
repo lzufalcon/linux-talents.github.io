@@ -1,6 +1,6 @@
 ---
 layout: page
-group: navigation
+# group: navigation
 toc: false
 title: 简历
 tagline: Linux 人才简历
