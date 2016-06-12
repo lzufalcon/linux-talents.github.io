@@ -1,10 +1,10 @@
 ---
 layout: post
 author: 'Osier Yang'
-title: "青云 QingCloud 研发部大量招聘"
+title: "青云QingCloud 研发部大量招聘"
 group: jobs
 permalink: /qingcloud-rd-center-jobs/
-description: "青云 QingCloud 研发部大量招聘，职位覆盖 IaaS, PaaS, SaaS, Devops"
+description: "青云QingCloud 研发部大量招聘，职位覆盖 IaaS, PaaS, SaaS, Devops"
 category:
   - 云计算职位
 tags:
@@ -29,9 +29,9 @@ addrs:
 
 ## 简介
 
-* 公司：[青云 QingCloud](http://www.qingcloud.com)
+* 公司：[青云QingCloud](http://www.qingcloud.com)
 
-  * 青云 QingCloud 是国内技术领先的云服务商，产品线覆盖 IaaS, PaaS, SaaS。致力于使可靠的 IT 资源及服务，使 IT 资源的交付更加简单、高效。
+  * 青云QingCloud 是国内技术领先的云服务商，产品线覆盖 IaaS, PaaS, SaaS。致力于使可靠的 IT 资源及服务，使 IT 资源的交付更加简单、高效。
 
 * 地址：
 
@@ -48,7 +48,7 @@ addrs:
 
 * __工作职责__
 
-  青云 QingCloud 是一个庞大、复杂、自管理的系统，覆盖了计算、存储、网络、安全等基础性 IT 领域，在未来还会继续增强、增多。在实际项目与产品发展中，我们不对每个人做组件层面的分工，而是将工程师作为一个整体来对待，根据开发的进度与要求，来做相应的安排。
+  青云QingCloud 是一个庞大、复杂、自管理的系统，覆盖了计算、存储、网络、安全等基础性 IT 领域，在未来还会继续增强、增多。在实际项目与产品发展中，我们不对每个人做组件层面的分工，而是将工程师作为一个整体来对待，根据开发的进度与要求，来做相应的安排。
 
 * __任职要求__
 
