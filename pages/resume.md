@@ -13,6 +13,6 @@ order: 20
 <section id="home">
   {% assign articles = site.posts %}
   {% assign condition = 'group' %}
-  {% assign value = 'team' %}
+  {% assign value = 'resume' %}
   {% include widgets/articles %}
 </section>
