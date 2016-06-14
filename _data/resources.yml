@@ -4,7 +4,6 @@
 
 - title: 链接
   data: links
-  url: /links/
   tooltip: true
 
 - title: 工具
