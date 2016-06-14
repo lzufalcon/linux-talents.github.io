@@ -9,6 +9,7 @@ categories:
   - 关于我们
 tags:
   - 资源
+  - Linux
 description: Linux Talents 提供的更多资源。
 comments: false
 order: 100
