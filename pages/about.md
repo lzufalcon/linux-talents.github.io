@@ -66,7 +66,7 @@ Linux Talents 致力于连接高校和企业 Linux 团队，促进 Linux 人才�
 * [青云QingCloud][10002]
 * [魅族内核团队][10000]
 * Linux 基金会
-* 腾御安(TYA)
+* [腾御安(TYA)][10003]
 * 中兴微电子
 * Wiredcraft
 * Microsoft
@@ -83,6 +83,7 @@ Linux Talents 致力于连接高校和企业 Linux 团队，促进 Linux 人才�
 [10000]: http://kernel.meizu.com
 [10001]: http://www.deepin.org
 [10002]: http://www.qingcloud.com
+[10003]: http://tya.company
 
 ## 联系我们
 
