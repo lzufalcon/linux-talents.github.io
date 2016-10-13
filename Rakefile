@@ -118,7 +118,7 @@ task :post do
     group = ENV["group"]
     group = "group: '#{group}'"
   else
-    group = '# group: " 默认为 original，也可选 translation, news, team, resume or jobs, 详见 _data/groups.yml"'
+    group = '# group: " 默认为 original，也可选 translation, news, resume or jobs, 详见 _data/groups.yml"'
   end
 
   # Build the author
@@ -160,7 +160,7 @@ task :post do
     post.puts "tags:#{tag_list}"
     post.puts "---"
     post.puts ""
-    post.puts "> By #{nick} of #{CONFIG['site']}"
+    post.puts "> By #{nick} of [#{CONFIG['site']}][1]"
     post.puts "> #{post_date}"
     post.puts ""
     post.puts "本模板为 泰晓科技 采用的文档模板与约定，为规范文章风格与质量，请在撰稿前务必仔细阅读！"

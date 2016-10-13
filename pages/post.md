@@ -27,19 +27,15 @@ Linux Talents 作为一个开放 Linux 人才交流平台，热烈欢迎大家�
 
 Ubuntu 14.04 以上用户可直接执行：
 
-    $ sudo tools/jekyll-env
+    $ sudo tools/install-docker-lab.sh
 
-其他用户请先参照 [官方文档](https://docs.docker.com/engine/installation/linux/)安装好 docker，之后通过如下命令搭建环境：
+  其他用户请先参照 [官方文档](https://docs.docker.com/engine/installation/linux/)安装好 docker，之后通过如下命令搭建环境：
 
-    $ docker build -t linux-talents/linux-talents.github.io ./
+* 启动 jekyll 环境，之后在容器内通过 <http://localhost:8080> 访问站点，如果 `8080` 有冲突，请修改 `tools/lab-portmap` 中的端口号。
 
-安装后请重启 X，确保 docker 运行时无需 sudo
-
-    $ sudo pkill X
-
-* 启动 jekyll 环境，之后即可通过 <http://localhost> 访问站点，默认只编译最新的 5 篇
-
-      $ tools/jekyll-build
+      $ tools/update-lab-uid.sh         # Sync uid between host and container
+      $ tools/update-lab-identify.sh    # Disable password
+      $ tools/run-docker-lab.sh
 
 * 生成文章模板, slug 为链接，title 为标题
 
