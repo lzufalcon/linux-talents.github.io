@@ -2,6 +2,8 @@
 #
 # open -- open the docker lab via a browser
 #
+# Usage: open [browser]
+#
 
 DOCKER_DIR=$(cd $(dirname $0) && pwd)
 CONFIG_DIR=$DOCKER_DIR/../configs/
@@ -10,8 +12,9 @@ IMAGE=$(< $CONFIG_DIR/name)
 
 LAB_HOST_NAME=$CONFIG_DIR/.host_name
 
-lab_host="localhost"
 [ -f $LAB_HOST_NAME ] && lab_host=$(< $LAB_HOST_NAME)
+[ -z "$lab_host" ] && lab_host="localhost"
+
 lab_name=`basename $IMAGE`
 
 LAB_LOCAL_PORT=$CONFIG_DIR/.local_port
@@ -30,8 +33,8 @@ local_port=6080
 url=http://$lab_host:$local_port/vnc.html
 
 # Get login password
-pwd=ubuntu
 [ -f $LAB_VNC_PWD ] && pwd=$(< $LAB_VNC_PWD)
+[ -z "$pwd" ] && pwd=ubuntu
 
 # Create local shotcut on Desktop
 REMOTE_DESKTOP_SHORTCUT=`find configs/ -name "lab.desktop"`
