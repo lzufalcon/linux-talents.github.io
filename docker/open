@@ -1,20 +1,21 @@
 #!/bin/bash
 #
-# open-docker-lab.sh -- open the docker lab via a browser
+# open -- open the docker lab via a browser
 #
 
-TOP_DIR=$(cd $(dirname $0) && pwd)
+DOCKER_DIR=$(cd $(dirname $0) && pwd)
+CONFIG_DIR=$DOCKER_DIR/../configs/
 
-IMAGE=$(< $TOP_DIR/lab-name)
+IMAGE=$(< $CONFIG_DIR/name)
 
-LAB_HOST_NAME=$TOP_DIR/.lab_host_name
+LAB_HOST_NAME=$CONFIG_DIR/.host_name
 
 lab_host="localhost"
 [ -f $LAB_HOST_NAME ] && lab_host=$(< $LAB_HOST_NAME)
 lab_name=`basename $IMAGE`
 
-LAB_LOCAL_PORT=$TOP_DIR/.lab_local_port
-LAB_VNC_PWD=$TOP_DIR/.lab_login_pwd
+LAB_LOCAL_PORT=$CONFIG_DIR/.local_port
+LAB_VNC_PWD=$CONFIG_DIR/.vnc_pwd
 
 WEB_BROWSER=$1
 [ -z "$WEB_BROWSER" ] && WEB_BROWSER=chromium-browser
@@ -33,16 +34,17 @@ pwd=ubuntu
 [ -f $LAB_VNC_PWD ] && pwd=$(< $LAB_VNC_PWD)
 
 # Create local shotcut on Desktop
-LAB_DESKTOP_SHORTCUT=~/Desktop/${lab_name}.desktop
+REMOTE_DESKTOP_SHORTCUT=`find configs/ -name "lab.desktop"`
+LOCAL_DESKTOP_SHORTCUT=~/Desktop/${lab_name}.desktop
 if [ -d ~/Desktop ]; then
-    echo '#!/usr/bin/env xdg-open' > $LAB_DESKTOP_SHORTCUT
+    echo '#!/usr/bin/env xdg-open' > $LOCAL_DESKTOP_SHORTCUT
     if [ "$WEB_BROWSER" == "chromium-browser" ]; then
         icon=chromium-browser.png
     else
         icon=firefox.png
     fi
-    cat $TOP_DIR/lab.desktop | sed "s%Exec=.*%Exec=$WEB_BROWSER $url%g" | sed "s%terminator.png%$icon%g">> $LAB_DESKTOP_SHORTCUT
-    chmod a+x $LAB_DESKTOP_SHORTCUT
+    cat $REMOTE_DESKTOP_SHORTCUT | sed "s%Exec=.*%Exec=$WEB_BROWSER $url%g" | sed "s%terminator.png%$icon%g">> $LOCAL_DESKTOP_SHORTCUT
+    chmod a+x $LOCAL_DESKTOP_SHORTCUT
 fi
 
 which $WEB_BROWSER 2>&1>/dev/null \

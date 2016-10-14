@@ -4,5 +4,6 @@
 #
 
 TOP_DIR=$(cd $(dirname $0) && pwd)
+CONFIG_DIR=$TOP_DIR/../configs/
 
-id -u $USER > $TOP_DIR/.lab_unix_uid
+id -u $USER > $CONFIG_DIR/.unix_uid

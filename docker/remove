@@ -1,13 +1,14 @@
 #!/bin/bash
 #
-# start-docker-lab.sh -- start a stopped docker lab
+# remove -- rm a docker lab
 #
 
-TOP_DIR=$(cd $(dirname $0) && pwd)
+DOCKER_DIR=$(cd $(dirname $0) && pwd)
+CONFIG_DIR=$DOCKER_DIR/../configs/
 
 CONTAINER_ID=$1
 if [ -z "$CONTAINER_ID" ]; then
-    LAB_CONTAINER_ID=$TOP_DIR/.lab_container_id
+    LAB_CONTAINER_ID=$CONFIG_DIR/.container_id
     if [ -f $LAB_CONTAINER_ID ]; then
         CONTAINER_ID=$(< $LAB_CONTAINER_ID)
     else
@@ -15,4 +16,4 @@ if [ -z "$CONTAINER_ID" ]; then
     fi
 fi
 
-docker start $CONTAINER_ID 2>&1
+docker rm -f $CONTAINER_ID 2>&1

@@ -1,29 +1,33 @@
 #!/bin/bash
 #
-# run-docker-lab.sh -- Run the docker image of the lab
+# run -- Run the docker image of the lab
 #
 
-TOP_DIR=$(cd $(dirname $0) && pwd)
+DOCKER_DIR=$(cd $(dirname $0) && pwd)
+CONFIG_DIR=$DOCKER_DIR/../configs/
+LAB_WORKDIR=/lab/
+LAB_TOOLS=$CONFIG_DIR/tools/
 
-IMAGE=$(< $TOP_DIR/lab-name)
+IMAGE=$(< $CONFIG_DIR/name)
 
-LAB_HOST_TOOL=$TOP_DIR/run-local-host.sh
-LAB_CAPS=$TOP_DIR/lab-caps
-LAB_DEVICES=$TOP_DIR/lab-devices
-LAB_LIMITS=$TOP_DIR/lab-limits
-LAB_PORTMAP=$TOP_DIR/lab-portmap
-LAB_VOLUMEMAP=$TOP_DIR/lab-volumemap
+LAB_HOST_TOOL=$LAB_TOOLS/run
 
-lab_name=`basename ${IMAGE}`
-local_lab_dir=`dirname $TOP_DIR`
-remote_lab_dir=/$lab_name/
+LAB_CAPS=$CONFIG_DIR/caps
+LAB_DEVICES=$CONFIG_DIR/devices
+LAB_LIMITS=$CONFIG_DIR/limits
+LAB_PORTMAP=$CONFIG_DIR/portmap
+LAB_VOLUMEMAP=$CONFIG_DIR/volumemap
 
-LAB_CONTAINER_NAME=$TOP_DIR/.lab_container_name
-LAB_CONTAINER_ID=$TOP_DIR/.lab_container_id
-LAB_LOCAL_PORT=$TOP_DIR/.lab_local_port
-LAB_HOST_NAME=$TOP_DIR/.lab_host_name
-LAB_UNIX_PWD=$TOP_DIR/.lab_unix_pwd
-LAB_VNC_PWD=$TOP_DIR/.lab_login_pwd
+lab_name=`basename $IMAGE`
+lab_dir=`dirname $DOCKER_DIR`
+lab_workdir=$LAB_WORKDIR
+
+LAB_CONTAINER_NAME=$CONFIG_DIR/.container_name
+LAB_CONTAINER_ID=$CONFIG_DIR/.container_id
+LAB_LOCAL_PORT=$CONFIG_DIR/.local_port
+LAB_HOST_NAME=$CONFIG_DIR/.host_name
+LAB_UNIX_PWD=$CONFIG_DIR/.unix_pwd
+LAB_VNC_PWD=$CONFIG_DIR/.vnc_pwd
 
 remote_port=6080
 
@@ -74,7 +78,7 @@ if [ -f $LAB_CAPS ]; then
   lab_caps=""
   for cap in $(< $LAB_CAPS)
   do
-    lab_caps="${lab_caps} --cap-add $cap"
+    lab_caps="$lab_caps --cap-add $cap"
   done
 fi
 
@@ -82,7 +86,7 @@ if [ -f $LAB_DEVICES  ]; then
   lab_devices=""
   for dev in $(< $LAB_DEVICES)
   do
-    lab_devices="${lab_devices} --device $dev"
+    lab_devices="$lab_devices --device $dev"
   done
 fi
 
@@ -95,7 +99,7 @@ if [ -f $LAB_PORTMAP  ]; then
   done
 fi
 
-lab_volumemap="-v $local_lab_dir:$remote_lab_dir"
+lab_volumemap="-v $lab_dir:$lab_workdir"
 if [ -f $LAB_VOLUMEMAP  ]; then
   for volumemap in $(< $LAB_VOLUMEMAP)
   do
@@ -108,17 +112,17 @@ fi
 container_name=${lab_name}-${local_port}
 
 # Remove the old one if exist
-docker ps -a | grep -q ${container_name}
+docker ps -a | grep -q $container_name
 
-[ $? -eq 0 ] && docker rm -f ${container_name}
+[ $? -eq 0 ] && docker rm -f $container_name
 
 CONTAINER_ID=$(docker run -d --privileged \
-		--name ${container_name} \
-                ${lab_portmap} \
-                ${lab_caps} \
-                ${lab_devices} \
-                ${lab_limits} \
-                ${lab_volumemap} \
+		--name $container_name \
+                $lab_portmap \
+                $lab_caps \
+                $lab_devices \
+                $lab_limits \
+                $lab_volumemap \
                 $IMAGE)
 
 echo "LOG: Wait for lab launching..."
@@ -129,7 +133,8 @@ do
     [ -n "$pwd" ] && break
 done
 
-echo "LOG: Container: ${CONTAINER_ID:0:12} / $container_name $pwd"
+echo "LOG: Container ID: ${CONTAINER_ID:0:12} Container Name: $container_name"
+echo "LOG: $pwd"
 
 if [ -f $LAB_PORTMAP ]; then
   grep -q 80 $LAB_PORTMAP
@@ -138,12 +143,12 @@ if [ -f $LAB_PORTMAP ]; then
     lab_web_port=$(grep 80 $LAB_PORTMAP | cut -d':' -f1)
     lab_host_name="localhost"
     [ -f $LAB_HOST_NAME ] && lab_host_name=$(< $LAB_HOST_NAME)
-    echo "LOG: Local Jekyll Web Address: http://$lab_host_name:$lab_web_port/"
+    echo "LOG: Local Web Address: http://$lab_host_name:$lab_web_port/"
   fi
 fi
 
 unix_pwd=`echo $pwd | sed -e "s/.* Password: \([^ ]*\) .*/\1/g"`
-vnc_pwd=`echo $pwd | sed -e "s/.* VNC-Password: \(.*\)$/\1/g"`
+vnc_pwd=`echo $pwd | sed -e "s/.* VNC Password: \(.*\)$/\1/g"`
 
 # Save the lab's information
 echo ${CONTAINER_ID:0:12} > $LAB_CONTAINER_ID
@@ -153,4 +158,4 @@ echo $unix_pwd > $LAB_UNIX_PWD
 echo $vnc_pwd > $LAB_VNC_PWD
 
 # Open the lab
-$TOP_DIR/open-docker-lab.sh $1
+$DOCKER_DIR/open $1

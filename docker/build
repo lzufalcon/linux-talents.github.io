@@ -1,27 +1,33 @@
 #!/bin/bash
 #
-# install-docker-lab.sh -- Build the docker image for the lab
+# build -- Build the docker image for the lab
 #
 # ref: https://docs.docker.com/engine/installation/linux/ubuntulinux/
 #
+# Usage: ./build 0|1
+#
 
-TOP_DIR=$(cd $(dirname $0) && pwd)
+DOCKER_DIR=$(cd $(dirname $0) && pwd)
+CONFIG_DIR=$DOCKER_DIR/../configs/
 
-IMAGE=$(< $TOP_DIR/lab-name)
+build=$1
+[ -z "$build" ] && build=0
+
+IMAGE=$(< $CONFIG_DIR/name)
 
 lab_user=`dirname $IMAGE`
 lab_name=`basename $IMAGE`
 
 # Make sure docker is installed
 which docker 2>&1 > /dev/null
-[ $? -eq 1 ] && $TOP_DIR/install-docker.sh
+[ $? -eq 1 ] && $DOCKER_DIR/install
 
 # Prefer Pull the lab to Build the lab
 docker search $lab_user | grep -q $lab_name
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 -a $build -eq 0 ]; then
 	docker pull $IMAGE
 else
-	sudo docker build -t $IMAGE $TOP_DIR/
+	sudo docker build -t $IMAGE $CONFIG_DIR/
 fi
 # Note: Let docker without sudo
 docker_without_sudo=0

@@ -1,13 +1,14 @@
 #!/bin/bash
 #
-# rm-docker-lab.sh -- rm a docker lab
+# debug -- Start shell in a container with root for debugging
 #
 
-TOP_DIR=$(cd $(dirname $0) && pwd)
+DOCKER_DIR=$(cd $(dirname $0) && pwd)
+CONFIG_DIR=$DOCKER_DIR/../configs/
 
 CONTAINER_ID=$1
 if [ -z "$CONTAINER_ID" ]; then
-    LAB_CONTAINER_ID=$TOP_DIR/.lab_container_id
+    LAB_CONTAINER_ID=$CONFIG_DIR/.container_id
     if [ -f $LAB_CONTAINER_ID ]; then
         CONTAINER_ID=$(< $LAB_CONTAINER_ID)
     else
@@ -15,4 +16,4 @@ if [ -z "$CONTAINER_ID" ]; then
     fi
 fi
 
-docker stats $CONTAINER_ID 2>&1
+docker exec -t -i $CONTAINER_ID /bin/bash

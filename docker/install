@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# install-docker.sh -- Build the docker image for the lab
+# install -- Install docker engine 
 #
 # ref: https://docs.docker.com/engine/installation/linux/ubuntulinux/
 #
@@ -25,5 +25,6 @@ DOCKER_OPTS="\$DOCKER_OPTS --storage-opt dm.basesize=2G"
 # DOCKER HACK END 789527394722
 EOF'
 # Restart to make sure the above opts work
+sudo ifconfig docker0 down
 sudo brctl delbr docker0
 sudo service docker restart

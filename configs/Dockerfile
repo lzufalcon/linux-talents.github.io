@@ -23,8 +23,9 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y ruby2.0
 RUN apt-get install -y ruby2.0-dev
 
-ADD ruby-switch /
+ADD tools/ruby-switch /
 RUN /ruby-switch 2.0
+RUN rm /ruby-switch
 
 RUN gem install iconv
 RUN gem install jekyll
@@ -37,20 +38,11 @@ RUN apt-get install -y terminator
 # RUN apt-get install -y fonts-arphic-gbsn00lp fonts-arphic-gkai00mp
 # RUN apt-get install -y fonts-arphic-ukai fonts-arphic-uming
 
-ADD autostart /etc/xdg/lxsession/LXDE/autostart
-ADD lab.desktop /
-ADD demo.desktop /
-ADD local.desktop /
-ADD help.desktop /
-ADD lab-name /
-ADD startup.sh /
+ADD tools/entrypoint.sh /
 
-# Tune the screen size
-ADD supervisord.conf /etc/supervisor/conf.d/
-
-WORKDIR /tinylab.org/
+WORKDIR /lab/
 
 EXPOSE 6080
 EXPOSE 80
 
-ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
