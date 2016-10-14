@@ -25,17 +25,17 @@ Linux Talents 作为一个开放 Linux 人才交流平台，热烈欢迎大家�
 
 * 安装 jekyll 编译环境
 
-Ubuntu 14.04 以上用户可直接执行：
+  Ubuntu 14.04 以上用户可直接执行：
 
-    $ sudo tools/install-docker-lab.sh
+    $ sudo ./docker/build
 
   其他用户请先参照 [官方文档](https://docs.docker.com/engine/installation/linux/)安装好 docker，之后通过如下命令搭建环境：
 
 * 启动 jekyll 环境，之后在容器内通过 <http://localhost:8080> 访问站点，如果 `8080` 有冲突，请修改 `tools/lab-portmap` 中的端口号。
 
-      $ tools/update-lab-uid.sh         # Sync uid between host and container
-      $ tools/update-lab-identify.sh    # Disable password
-      $ tools/run-docker-lab.sh
+      $ ./docker/uid           # Sync uid between host and container
+      $ ./docker/identify 0    # Disable password
+      $ ./docker/run
 
 * 生成文章模板, slug 为链接，title 为标题
 
@@ -64,40 +64,11 @@ Ubuntu 14.04 以上用户可直接执行：
 
 ### 搭建 Jekyll 工作环境
 
-#### 通过 Docker 搭建
-
 Ubuntu 14.04 以上用户，可通过 docker 快速搭建：
 
-    $ sudo tools/install-docker-env.sh
-
-其他用户请先参照 [官方文档](https://docs.docker.com/engine/installation/linux/)安装好 docker，之后通过如下命令搭建环境：
-
-    $ docker build -t linux-talents/linux-talent.github.io ./
-
-安装后请重启 X，确保 docker 运行时无需 sudo
-
-    $ sudo pkill X
-
-最后，启动 jekyll 环境，之后即可通过 <http://localhost> 访问站点，默认只编译最近的 5 篇
-
-    $ tools/jekyll-build
-
-**注**：上述 docker 创建的 jekyll 环境使用了 80 端口，为了避免冲突，使用前请先停掉其他 http 服务，比如 nginx/apache 等。
-
-#### 本地搭建
-
-    $ sudo apt-get install gcc make ruby ruby-dev rake nodejs
-
-    // 新版 jekyll 依赖 ruby >=2.0，以 2.0 为例
-    $ sudo apt-get install ruby2.0 ruby2.0-dev ruby2.0-doc
-    $ tools/ruby-switch 2.0
-
-    $ sudo gem sources -r http://rubygems.org/
-    $ sudo gem sources -r https://rubygems.org/
-    $ sudo gem sources -a https://ruby.taobao.org/
-    $ sudo gem install iconv
-    $ sudo gem install jekyll
-    $ sudo gem install jekyll-paginate
+    $ sudo ./docker/build
+    $ sudo ./docker/run
+    $ sudo ./docker/open
 
 ### 撰写稿件
 
@@ -147,26 +118,7 @@ Markdown 基本用法请参考 [Markdown 语法说明][2] 以及上面创建的�
 
 ### 编译和浏览文稿
 
-如果 jekyll 环境由 docker 搭建，文章会被自动编译，可实时通过 <http://localhost> 查看编译效果，因此无需下述两步。
-
-#### 编译文稿
-
-    $ jekyll s --limit_posts 1
-
-或者
-
-    $ tools/start
-
-**注**
-
-* `--limit_posts 1` 只编译最新一篇，会大大加快编译和测试效率。
-* `tools/start` 默认编译最近 5 篇，并自动启动浏览器（默认为 `chromium-browser`）访问，另外，IP 地址为自动获取到的 `br0` 或者 `eth0` 的地址，可在本地局域网访问。可修改 `tools/start` 进行配置。
-
-#### 浏览文稿
-
-如果使用 `jekyll s` 而且没有通过 `-H` 指定 IP 地址，那么默认 IP 地址为 `127.0.0.1` 或者域名 `localhost`，可以通过浏览器打开：<http://localhost:4000> 进行查看。
-
-而 `tools/start` 使用了 `-H` 自动获取 IP 地址并主动启动浏览器打开，所以不需要自己输入地址，执行完 `tools/start` 后即可看到浏览器窗口，如果没有及时打开，可以点击 `Reload` 重新加载。
+如果 jekyll 环境由 docker 搭建，文章会被自动编译，可实时通过 <http://localhost:8080> 查看编译效果。
 
 ### 递送稿件
 
