@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# update-lab-uid.sh
-#
-
-TOP_DIR=$(cd $(dirname $0) && pwd)
-CONFIG_DIR=$TOP_DIR/../configs/
-
-id -u $USER > $CONFIG_DIR/.unix_uid
