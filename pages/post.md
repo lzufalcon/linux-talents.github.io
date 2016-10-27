@@ -47,96 +47,31 @@ Linux Talents 作为一个开放 Linux 人才交流平台，热烈欢迎大家�
 
       $ vim _posts/*the-first-post-slug*
 
+* 编译和浏览文稿
+
+  文章会被自动编译，可实时通过 <http://localhost:8081> 或者在容器内的桌面上直接点击 'Local Page' 查看编译效果。
+
 * 投稿
 
-  写完后可直接把稿件发送到 wuzhangjin [AT] gmail [DOT] com 或者按照后面的 “[递送稿件](#section-7)” 过程通过 github 提交（推荐）。如果有图片等资料请一并发送到邮件，通过 github 提交则记得存放并上传到 `uploads/年/月/`。
+  写完后可直接把稿件发送到 wuzhangjin [AT] gmail [DOT] com。如果有图片等资料请一并发送到邮件，通过 github 提交则记得存放并上传到 `uploads/年/月/`。
 
-**注**：推荐遵循下述完整投稿过程，因为所有过程可通过 github 管控，包括评审等流程，非常便利。
+  打开 [在线仓库][1]，并 [Fork](https://github.com/linux-talents/linux-talents.github.io#fork-destination-box) / Star，之后就可持续参与/关注我们的原创进程。
 
-## 完整投稿过程
+  Markdown 基本用法请参考 [Markdown 语法说明][2]，如果希望使用更多样式，可参照 `_posts/` 目录下的其他文章。
 
-### Fork / Star / Clone 文章仓库
+  测试完无误后即可通过 Github 发送 Pull Request 进行投稿。
 
-我们的文章仓库托管在 [Github][1] 上，可这样下载：
+  这一步要求事先做如下准备：
 
-    $ git clone https://github.com/linux-talents/linux-talents.github.io.git
-    $ cd linux-talents.github.io
+    * 在 Github Fork 上述 [文章仓库][1]
+    * 您在本地修改后先提交到刚 Fork 的仓库
+    * 然后再进入自己仓库，选择合并到我们的 master 分支
 
-打开 [在线仓库][1]，并 [Fork](https://github.com/linux-talents/linux-talents.github.io#fork-destination-box) / Star，之后就可持续参与/关注我们的原创进程。
-
-### 搭建 Jekyll 工作环境
-
-Ubuntu 14.04 以上用户，可通过 docker 快速搭建：
-
-    $ sudo ./docker/build
-    $ sudo ./docker/run
-    $ sudo ./docker/open
-
-### 撰写稿件
-
-通过如下命令创建一份文章模板，然后采用 Markdown 撰写。
-
-    $ rake post
-
-或者
-
-    $ tools/post
-
-后者是前者的封装，可以简化命令行的输入。
-
-或者直接把文件名和短地址设置好：
-
-    $ tools/post slug=the-first-post-slug
-
-当然，也可以同时把其他参数都默认设置好，比如标题：
-
-    $ tools/post slug=the-first-post-slug title="第一篇原创文章。。。"
-
-更多参数请参考：
-
-    author='Author'
-    nick="Nick Name"
-    title="A Title"
-    tags="[tag1,tag2]"
-    categories="[category1,category2]"
-    group='Article Group'
-    album='Article Series'
-    tagline='subtitle'
-    description="summary"
-    slug='URL with English characeters'
-
-Markdown 基本用法请参考 [Markdown 语法说明][2] 以及上面创建的文章模板中的说明。
-
-如果希望使用更多样式，可参照 `_posts/` 目录下的其他文章。
-
-如果有附件或者图片资料，请创建目录 `uploads/年/月/`，并添加资料进去，然后在文章中通过 Markdown 语法引用。
-
-*注*：也可以在 `_data/people.yml` 中添加上作者信息后直接通过如下方式创建一个快捷命令以便自动填充作者信息，例如：
-
-    $ cd tools
-    $ ln -s post falcon.post
-
-把 `falcon` 替换为你自己的昵称即可。
-
-### 编译和浏览文稿
-
-如果 jekyll 环境由 docker 搭建，文章会被自动编译，可实时通过 <http://localhost:8080> 查看编译效果。
-
-### 递送稿件
-
-测试完无误后即可通过 Github 发送 Pull Request 进行投稿。
-
-这一步要求事先做如下准备：
-
-* 在 Github Fork 上述 [文章仓库][1]
-* 您在本地修改后先提交到刚 Fork 的仓库
-* 然后再进入自己仓库，选择合并到我们的 master 分支
-
-提交 Pull Request 后，我们会尽快安排人员评审，评审通过后即可发布到网站。
+  提交 Pull Request 后，我们会尽快安排人员评审，评审通过后即可发布到网站。
 
 ## 文章模板说明
 
-通过 `rake post` 或者 `tools/post` 可以创建一份文章模板，这里对该模板做稍许说明，更多内容请阅读模板本身。
+通过`tools/post` 可以创建一份文章模板，这里对该模板做稍许说明，更多内容请阅读模板本身。
 
 该模板包括两大部分，第一部分是用两个 `---` 括起来的文件头，剩下的部分为文章正文。
 
