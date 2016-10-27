@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+sitemap: http://linux-talents.tinylab.org/sitemap.xml
