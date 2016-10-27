@@ -27,39 +27,41 @@ Linux Talents 作为一个开放 Linux 人才交流平台，热烈欢迎大家�
 
   Ubuntu 14.04 以上用户可直接执行：
 
-      $ tools/docker/build
-      or
       $ tools/docker/pull
+      or
+      $ tools/docker/build
 
   其他用户请先参照 [官方文档](https://docs.docker.com/engine/installation/linux/)安装好 docker，之后通过如下命令搭建环境：
 
-* 启动 jekyll 环境，之后在容器内通过 <http://localhost:8081> 访问站点，如果 `8081` 有冲突，请修改 `configs/linux-talents/docker/portmap` 中的端口号。
+* 启动 Jekyll 环境
 
       $ tools/docker/uid           # Sync uid between host and container
       $ tools/docker/identify      # Disable password
       $ tools/docker/run
 
-* 生成文章模板, slug 为链接，title 为标题
+  Jekyll 环境默认已经支持中文，但是输入法要通过设置手动添加一下 `ibus-sunpinyin`，并配置下中英文的快捷切换方式为 `ALT+s`，以避免跟本地的中英文切换快捷方式冲突。
+
+* 撰写稿件
+
+  生成文章模板, slug 为链接，title 为标题
 
       $ tools/post slug=the-first-post-slug title="第一篇原创文章。。。"
 
-* 参照模板编辑文章
+  参照模板编辑文章
 
       $ vim _posts/*the-first-post-slug*
 
-* 编译和浏览文稿
-
-  文章会被自动编译，可实时通过 <http://localhost:8081> 或者在容器内的桌面上直接点击 'Local Page' 查看编译效果。
-
-* 投稿
-
-  写完后可直接把稿件发送到 wuzhangjin [AT] gmail [DOT] com。如果有图片等资料请一并发送到邮件，通过 github 提交则记得存放并上传到 `uploads/年/月/`。
-
-  打开 [在线仓库][1]，并 [Fork](https://github.com/linux-talents/linux-talents.github.io#fork-destination-box) / Star，之后就可持续参与/关注我们的原创进程。
+  如果有图片等资料请一并发送到邮件，通过 github 提交则记得存放并上传到 `uploads/年/月/`。
 
   Markdown 基本用法请参考 [Markdown 语法说明][2]，如果希望使用更多样式，可参照 `_posts/` 目录下的其他文章。
 
-  测试完无误后即可通过 Github 发送 Pull Request 进行投稿。
+* 编译和浏览文稿
+
+  文章会被自动编译，可实时通过 <http://localhost:8081> 或者在容器内的桌面上直接点击 'Local Page' 快捷方式查看编译效果。
+
+* 递送稿件
+
+  测试完无误后即可通过 Github 发送 Pull Request 进行投稿。也可直接把稿件发送到 wuzhangjin [AT] gmail [DOT] com。
 
   这一步要求事先做如下准备：
 
