@@ -27,13 +27,13 @@ Linux Talents 作为一个开放 Linux 人才交流平台，热烈欢迎大家�
 
   Ubuntu 14.04 以上用户可直接执行：
 
-    $ tools/docker/build
-    or
-    $ tools/docker/pull
+      $ tools/docker/build
+      or
+      $ tools/docker/pull
 
   其他用户请先参照 [官方文档](https://docs.docker.com/engine/installation/linux/)安装好 docker，之后通过如下命令搭建环境：
 
-* 启动 jekyll 环境，之后在容器内通过 <http://localhost:8081> 访问站点，如果 `8081` 有冲突，请修改 `tools/lab-portmap` 中的端口号。
+* 启动 jekyll 环境，之后在容器内通过 <http://localhost:8081> 访问站点，如果 `8081` 有冲突，请修改 `configs/linux-talents/docker/portmap` 中的端口号。
 
       $ tools/docker/uid           # Sync uid between host and container
       $ tools/docker/identify      # Disable password
