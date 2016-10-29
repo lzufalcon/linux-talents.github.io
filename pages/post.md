@@ -35,7 +35,6 @@ Linux Talents 作为一个开放 Linux 人才交流平台，热烈欢迎大家�
 
 * 启动 Jekyll 环境
 
-      $ tools/docker/uid           # Sync uid between host and container
       $ tools/docker/identify      # Disable password
       $ tools/docker/run
 
