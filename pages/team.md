@@ -2,7 +2,7 @@
 layout: page
 group: navigation
 toc: false
-title: 团队
+title: Talents
 tagline: 大中华区 Linux 团队名录
 permalink: /team/
 keywords: Linux, Team, 团队 
