@@ -71,9 +71,9 @@ order: 15
 
 ## Docker 镜像站
 
-  * https://registry.aliyuncs.com:5000
+  * https://docker.mirrors.ustc.edu.cn
   * http://your-id.m.daocloud.io
 
 ## NPM 镜像站
 
-  * https://registry.npm.taobao.org
+  * https://gems.ruby-china.org/
